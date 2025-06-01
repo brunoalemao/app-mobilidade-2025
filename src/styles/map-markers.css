@@ -1,0 +1,178 @@
+/* Estilos para marcadores de mapa */
+
+/* Marcador de origem */
+.origin-marker {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.origin-marker-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  z-index: 2;
+}
+
+/* Marcador de destino */
+.destination-marker {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.destination-marker-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: #F43F5E;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  z-index: 2;
+}
+
+/* Marcador de motorista */
+.driver-marker {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.driver-marker:hover {
+  transform: scale(1.1);
+}
+
+.driver-marker-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  pointer-events: none;
+}
+
+.driver-marker-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  transition: all 0.2s;
+}
+
+.driver-marker:hover .driver-marker-icon {
+  background-color: rgb(37, 99, 235);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.driver-marker-icon svg {
+  width: 14px;
+  height: 14px;
+  color: white;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Popup styles */
+.mapboxgl-popup {
+  z-index: 1000 !important;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.mapboxgl-popup-close-button {
+  padding: 4px 8px !important;
+  color: #6B7280 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  right: 4px !important;
+  top: 4px !important;
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: #F3F4F6 !important;
+  color: #374151 !important;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+}
+
+/* Garantir que os marcadores fiquem acima de outros elementos do mapa */
+.mapboxgl-marker {
+  z-index: 999 !important;
+  pointer-events: auto !important;
+}
+
+/* Garantir que os controles do mapa fiquem acima dos marcadores */
+.mapboxgl-control-container {
+  z-index: 1001 !important;
+}
+
+/* Remover transformações padrão do Mapbox */
+.mapboxgl-marker > * {
+  transform: none !important;
+}
+
+/* Garantir que o SVG do carro fique visível */
+.driver-marker-icon svg {
+  position: relative;
+  z-index: 1000;
+  display: block;
+  margin: auto;
+}
